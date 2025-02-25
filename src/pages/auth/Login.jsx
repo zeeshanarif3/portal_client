@@ -109,8 +109,8 @@ const Login = () => {
                                                         type="submit"
                                                         className="btn btn-primary btn-block fa-lg mb-3"
                                                         style={{
-                                                            backgroundColor: '#2563EB',
-                                                            borderColor: '#2563EB',
+                                                            backgroundColor: '#1E3A8A',
+                                                            borderColor: '#1E3A8A',
                                                             color: 'white',
                                                             fontSize: '1.3rem',
                                                             padding: '4px 15px',
@@ -124,14 +124,7 @@ const Login = () => {
                                             </div>
 
                                             {/* Account Registration Link */}
-                                            <div className="d-flex align-items-center justify-content-center pb-4">
-                                                <p className="mb-0 me-2">Don't have an account?</p>
-                                                <Link to="/signup">
-                                                    <button type="button" className="btn btn-outline-danger">
-                                                        Create new
-                                                    </button>
-                                                </Link>
-                                            </div>
+                 
                                         </form>
                                     </div>
                                 </div>
@@ -140,11 +133,11 @@ const Login = () => {
                                 <div
                                     className="col-lg-6 d-flex align-items-center"
                                     style={{
-                                        background: 'linear-gradient(45deg, #1E3A8A, #2563EB)',
+                                        background: '#1E3A8A',
                                     }}
                                 >
                                     <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                                        <h4 className="mb-4">We are more than just a company</h4>
+                                        <h4 className="mb-4">Commitment, Excellence, Growth</h4>
                                     </div>
                                 </div>
                             </div>
