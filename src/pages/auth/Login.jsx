@@ -1,10 +1,9 @@
 
-import React, { useState } from 'react';
-import './Login.css'; // Assuming you have SCSS styles
-import logo from "../../assets/images/TpcLogo.jpeg";
+import React, { useState, useEffect } from 'react';
+import './Login.css'; 
+import logo from "../../assets/img/TpcLogo.jpeg";
 import { Link, useNavigate } from "react-router-dom";
-// import { loginUser } from "../../services/auth"
-import {loginUser} from '../../services/auth'
+import { loginUser } from '../../services/auth'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -13,49 +12,66 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
+
     const handleLogin = async (e) => {
         e.preventDefault();
-    
+
+        console.log("handleLogin function called");  
+
         if (!email || !password) {
             toast.error("Please enter email and password.");
             return;
         }
-    
+
         try {
+            console.log("Calling loginUser API...");  
             const response = await loginUser({ email, password });
-    
-            console.log(response?.messageID, "Message ID");
-            console.log(response?.message, "Message");
-    
+            console.log("Response received:", response); 
+
+            if (!response) {
+                console.error("No response from server");
+                toast.error("No response from server.");
+                return;
+            }
+
+            console.log("Message ID:", response?.messageID);
+            console.log("Message:", response?.message);
+
             if (response?.messageID === 200) {
                 toast.success(response.message);
-    
+
                 // Store token and user details
-                localStorage.setItem("token", response.token);
-                localStorage.setItem("user", JSON.stringify(response.user)); 
-    
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("user", JSON.stringify(response.data.payload));
+                console.log(response, "responseresponse");
+
+
+                console.log("User details saved to localStorage");
+                console.log(response.data.payload.role, "response")
+
                 // Check user role
-                if (response.user?.role === 0) {
-                    // navigate("/role-zero-page");  // Navigate to a specific page for role 0
-                } else if (response.user?.role === 1) {
-                    // navigate("/dashboard");  // Navigate to dashboard for role 1
+                if (response.data.payload.role === 0) {
+                    navigate("/admindashboard"); 
+                } else if (response.data.payload.role === 1) {
+                    navigate("/trainerdashboard"); 
                 }
+            } else {
+                console.error("Login failed with Message ID:", response?.messageID);
+                toast.error(response?.message || "Login failed.");
             }
         } catch (err) {
             console.error("Login error:", err);
-    
-            if (err.messageID === 404) {
-                toast.error(err.message);
-            } else if (err.messageID === 401) {
-                toast.error(err.message);
+
+            if (err?.messageID === 404) {
+                toast.error(err.message || "User not found.");
+            } else if (err?.messageID === 401) {
+                toast.error(err.message || "Invalid credentials.");
             } else {
                 toast.error("Login failed. Please try again.");
             }
-        } finally {
-            // setLoading(false);
         }
     };
-    
+
 
     return (
         <section className="h-100 gradient-form" style={{ backgroundColor: '#eee' }}>
@@ -124,7 +140,7 @@ const Login = () => {
                                             </div>
 
                                             {/* Account Registration Link */}
-                 
+
                                         </form>
                                     </div>
                                 </div>
