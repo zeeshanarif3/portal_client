@@ -26,7 +26,7 @@ function App() {
       <ToastContainer />
       <Routes>
         {/* Public Route */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
 
         {/* Protected Routes with Sidebar */}
         <Route
