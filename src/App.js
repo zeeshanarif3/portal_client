@@ -6,21 +6,50 @@ import 'react-toastify/dist/ReactToastify.css';
 import Login from './pages/auth/Login';
 import Sidebar from './common/Sidebar';
 import Header from './common/Header';
+import Dashboard from './Appdashboard/Admin/Dashboard';
+import Trainerdashboard from './Appdashboard/Trainer/TrainerDashboard';
+
+const ProtectedLayout = ({ children }) => {
+  return (
+    <div className="app-container">
+      <div className="content-container">
+        <Sidebar />
+        <div className="main-content">{children}</div>
+      </div>
+    </div>
+  );
+};
+
 function App() {
   return (
     <div className="App">
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/sidebar" element={<Sidebar />} />
-        <Route path="/header" element={<Header />} />
+        {/* Public Route */}
+        <Route path="/" element={<Login />} />
 
+        {/* Protected Routes with Sidebar */}
+        <Route
+          path="/admindashboard"
+          element={
+            <ProtectedLayout>
+              <Dashboard />
+            </ProtectedLayout>
+          }
+        />
 
-        {/* Add more routes as needed */}
+<Route
+          path="/trainerdashboard"
+          element={
+            <ProtectedLayout>
+              <Trainerdashboard />
+            </ProtectedLayout>
+          }
+        />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
