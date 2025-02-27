@@ -2,7 +2,7 @@ import React from "react";
 import "./Header.css"; 
 import imglogo from "../assets/img/employee.png";
 import { Link, useNavigate } from "react-router-dom";
-
+import logo from "../assets/img/TpcLogo.jpeg";
 const Header = ({ userName, onLogout }) => {
   const navigate = useNavigate();
 
@@ -21,6 +21,9 @@ const Header = ({ userName, onLogout }) => {
       <div className="nav_collapse collapse navbar-collapse" id="navbarSupportedContent">
         <div className="row width_100">
           <div className="col-12 col-md-12 col-lg-12 padd_3">
+          <Link to="/" className="navbar-brand">
+          <img src={logo} alt="Company Logo" className="company-logo" />
+        </Link>
             <ul className="navbar-nav navbar_nav mr-auto">
               <li className="nav-item bell_icon">
                 {/* Notification Bell Icon (if needed) */}

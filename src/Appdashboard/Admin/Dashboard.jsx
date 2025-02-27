@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import TrainerList from './TrainerList';
 
 const Dashboard = () => {
   return (
     <div>
-      <h1>Admin Dashboard</h1>
+      <div>
+        <TrainerList/>
+      </div>
     </div>
   );
 };

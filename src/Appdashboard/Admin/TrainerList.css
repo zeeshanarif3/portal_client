@@ -1,0 +1,126 @@
+/* Trainer List Container */
+.trainer-list-container {
+    padding: 20px;
+    background: #f4f7fe;
+    border-radius: 8px;
+    margin-left: 160px;
+  }
+  
+  .trainer-list-title {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* Table Styles */
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(194, 184, 184, 0.1);
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .custom-table th {
+    background-color:#11af4d;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  
+  .custom-table tr:hover {
+    background: #f1f3f8;
+  }
+  
+  /* Checkbox Styling */
+  .custom-table input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  
+  /* Status Labels */
+  .status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  
+  .status.active {
+    color: green;
+    background: rgba(0, 128, 0, 0.1);
+  }
+  
+  .status.inactive {
+    color: red;
+    background: rgba(255, 0, 0, 0.1);
+  }
+  
+  /* Action Buttons */
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .add {
+    color: #28a745;
+  }
+  
+  .add:hover {
+    color: #1e7e34;
+  }
+  
+  .edit {
+    color: #007bff;
+  }
+  
+  .edit:hover {
+    color: #0056b3;
+  }
+  
+  .delete {
+    color: #dc3545;
+  }
+  
+  .delete:hover {
+    color: #a71d2a;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .trainer-list-title {
+      font-size: 20px;
+    }
+  
+    .custom-table th,
+    .custom-table td {
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    .icon {
+      font-size: 16px;
+    }
+  }
+  
