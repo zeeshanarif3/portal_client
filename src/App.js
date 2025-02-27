@@ -8,6 +8,7 @@ import Sidebar from './common/Sidebar';
 import Header from './common/Header';
 import Dashboard from './Appdashboard/Admin/Dashboard';
 import Trainerdashboard from './Appdashboard/Trainer/TrainerDashboard';
+import TrainerList from './Appdashboard/Admin/TrainerList';
 
 const ProtectedLayout = ({ children }) => {
   return (
@@ -38,11 +39,19 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/trainerdashboard"
           element={
             <ProtectedLayout>
               <Trainerdashboard />
+            </ProtectedLayout>
+          }
+        />
+                <Route
+          path="/trainer-list"
+          element={
+            <ProtectedLayout>
+              <TrainerList />
             </ProtectedLayout>
           }
         />
