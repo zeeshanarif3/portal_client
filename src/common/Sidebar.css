@@ -21,6 +21,7 @@
     display: inline-block;
     border-radius: 4px;
     margin: 2px;
+    margin-top: 20px;
 }
 
 .page-wrapper .theme.chiller-theme {
@@ -55,7 +56,8 @@
     max-height: 100%;
     position: fixed;
     top: 0;
-    left: -300px;
+    left: -200px;
+    margin-top: 95px;
     z-index: 999;
 }
 
